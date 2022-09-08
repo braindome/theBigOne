@@ -14,6 +14,7 @@ public class Main {
         System.out.println("3. Spegelvänd en sträng");
         System.out.println("4. Summera alla tal i en sträng");
         System.out.println("5. Ta reda på om ordet är en palindrom");
+        System.out.println("6. Fibonaccital till n-plats");
         System.out.println("e. Avsluta");
 
         Scanner sc = new Scanner(in);
@@ -48,6 +49,10 @@ public class Main {
                 String inputString = String.valueOf(sc.nextLine());
                 System.out.println("Är ordet en palindrom?");
                 System.out.println(palindrom(inputString));
+            } else if (choice.equals("6")) {
+                out.println("Skriv in ett tal");
+                int number = Integer.parseInt((sc.nextLine()));
+                out.println(fibonacci(number));
             } else if (choice.equals("e")) {
                 System.out.println("Hej då!");
                 break;
@@ -108,6 +113,17 @@ public class Main {
             }
         }
         return true;
+    }
+
+    static int fibonacci (int number) {
+        int first = 0, second = 1;
+        for (int i = 1; i <= number; i++) {
+            out.print(first + ", ");
+            int next = first + second;
+            first = second;
+            second = next;
+        }
+        return first;
     }
 
 }
